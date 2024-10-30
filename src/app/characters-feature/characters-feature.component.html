@@ -1,0 +1,29 @@
+<header class="feature-header">
+  <h1>Super Heroes</h1>
+</header>
+<div class="controls">
+  <div class="spacer"></div>
+</div>
+<section class="content-container">
+  @if ($busy()) {
+    <div class="loading">Loading...</div>
+  } @else {
+    <table cdk-table [dataSource]="$entities()">
+      <ng-container cdkColumnDef="thumbnail">
+        <td cdk-cell *cdkCellDef="let character">
+          @let src = character.thumbnail?.path +'.' + character.thumbnail?.extension;
+
+          <img [ngSrc]="src" width="48" height="48" alt="">
+        </td>
+      </ng-container>
+      <ng-container cdkColumnDef="name">
+        <td cdk-cell *cdkCellDef="let character">{{ character.name }}</td>
+      </ng-container>
+      <ng-container cdkColumnDef="description">
+        <td cdk-cell *cdkCellDef="let character">{{ character.description }}</td>
+      </ng-container>
+
+      <tr cdk-row *cdkRowDef="let row; columns: columns;"></tr>
+    </table>
+  }
+</section>

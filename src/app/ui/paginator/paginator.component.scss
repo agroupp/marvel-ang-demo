@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  outline: none;
+  background: none;
+  border: none;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+  padding: 0.5rem;
+  line-height: 1;
+  border-radius: 50%;
+
+  &:disabled {
+    color: #6d6d6d;
+    background-color: #eaeaea;
+    cursor: default;
+  }
+}

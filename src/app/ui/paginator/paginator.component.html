@@ -1,0 +1,8 @@
+@let _total = total();
+@let _limit = limit();
+
+@if (_limit && _total) {
+  <button [disabled]="offset() === 0" (click)="offset.set(offset() - _limit)"><</button>
+  <span>{{ offset() + 1 }} - {{ offset() + _limit }} of {{ _total }}</span>
+  <button [disabled]="offset() + _limit > _total" (click)="offset.set(offset() + _limit)">></button>  
+}
